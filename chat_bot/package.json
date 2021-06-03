@@ -1,0 +1,28 @@
+{
+  "name": "bot",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "Telegram bot for alchiroq support",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "dotenv": "^10.0.0",
+    "express": "^4.17.1",
+    "express.io": "^1.1.13",
+    "knex": "^0.19.5",
+    "moment": "^2.29.1",
+    "morgan": "^1.10.0",
+    "pg": "^8.6.0",
+    "socket.io": "^3.1.2",
+    "socket.io-client": "^2.4.0",
+    "telegraf": "^3.38.0",
+    "telegraf-i18n": "^6.6.0"
+  }
+}

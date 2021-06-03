@@ -1,0 +1,30 @@
+enter-name: "Botda ro'yxatdan o'tish uchun *ismingizni* kiriting"
+send-number: Raqamingizni yuboring
+my-number: Mening raqamim
+thanks-reg: "Rahmat! Siz ro'yxatdan  muvaffaqiyatli o'tdingiz."
+send-question: "Savolingizni yozing, bizning mutaxasislarimiz qisqa vaqtda javob berishadi."
+back: "Ortga"
+welcome:  "*Alchiroq* ilovasida mijozlarni qullab quvvatlash telegram botiga xush kelibsiz.
+           Kop beriladigan savollarni koring yoki savolingizni tugmani bosib yozing."
+ask: Savolingizni bering
+website: Bizning web sayt
+faq: "Tez-tez so'raladigan savollar"
+blocked: "Sizninig akkaunt bloklangan ${date ? (date + 'gacha') : ''}"
+visit-website: "Batafsil ma'lumot uchun web saytimizga tashrif buyuring: https://www.sola.uz/"
+faq-website: "*1. Bizning web saytimizga qanday kirish mumkin?*"
+reminder: 'Agar siz savol berishni yoki operator bilan ilgari boshlangan muloqotni davom ettirishni istasangiz, "savol berish" tugmasini bosing'
+change-lang: "Tilni o'zgartirish"
+working-hours: Ish vaqti
+working-hours-text: "Bizning operatorlarimiz har kuni 9:00 dan 20:00 gacha javob beradi"
+working-hours-long-text: "Xozir biz sizning murojaatingizga javob bera olmaymiz, siz ish vaqtidan tashqari murojaat qildingiz. Operator sizga ish vaqtida javob beradi, iltimos, kuting."
+change-name: "Ismni o'zgartirish"
+change-number: "Raqamni o'zgartirish"
+enter-your-name: "Ismingizni kiriting"
+enter-your-phone: "Telefoningizni kiriting"
+your-name-has-updated: "Ismingiz saqlandi"
+your-phone-has-updated: "Telefon saqlandi"
+settings: Sozlamalar
+android: android
+ios:  ios
+link-to-app: "Ilovani yuklab oling"
+link: "android app"
