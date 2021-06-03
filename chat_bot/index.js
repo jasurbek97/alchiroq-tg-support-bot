@@ -136,10 +136,10 @@ const askScene = new WizardScene(
                 return next(ctx);
             }
 
-            if (!moment(new Date()).isBetween(moment('09:00', 'HH:mm'), moment('20:00', 'HH:mm')) && !ctx.scene.state.sent) {
-                ctx.scene.state.sent = true;
-                ctx.replyWithMarkdown(ctx.i18n.t('working-hours-long-text'))
-            }
+            // if (!moment(new Date()).isBetween(moment('01:00', 'HH:mm'), moment('20:00', 'HH:mm')) && !ctx.scene.state.sent) {
+            //     ctx.scene.state.sent = true;
+            //     ctx.replyWithMarkdown(ctx.i18n.t('working-hours-long-text'))
+            // }
 
             socket.emit('question', {
                 from: ctx.from.id,
