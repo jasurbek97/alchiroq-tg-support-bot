@@ -7,6 +7,7 @@ import {
 } from '@nestjs/common';
 import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
+import {join} from 'path';
 
 @Controller()
 export class AppController {
@@ -24,7 +25,7 @@ export class AppController {
 
   @Post('/media')
   @UseInterceptors(
-    FileInterceptor('file', { dest: 'uploads/', preservePath: true }),
+    FileInterceptor('file', { dest: join(__dirname, '../uploads'), preservePath: true }),
   )
   uploadMedia(@UploadedFile() file) {
     return file.path;
