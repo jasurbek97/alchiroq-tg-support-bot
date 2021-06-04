@@ -371,7 +371,7 @@ socket.on('new_answer', async data => {
         bot.telegram.sendDocument(
             chat.chat_id,
             {
-                source: message.path,
+                source: '/var/www/alchiroq-tg-support-bot/socket/uploads/'+ message.path,
                 filename: message.filename
             },
             {

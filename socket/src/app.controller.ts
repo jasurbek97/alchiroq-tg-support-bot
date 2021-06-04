@@ -28,6 +28,6 @@ export class AppController {
     const name = `${fileName}${path.parse(file.name).ext}`;
     const filePath = path.join(__dirname, `../uploads`, name);
     await file.mv(filePath);
-    return filePath;
+    return name;
   }
 }
