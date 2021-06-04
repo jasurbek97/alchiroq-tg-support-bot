@@ -77,7 +77,7 @@ export class ChatGateway {
           const operator = operators.find(op => op.id === msg.operator_id);
           return {
             ...msg,
-            operator: operator ? operator.username : '',
+            operator: operator ? operator.email : '',
           };
         }),
     }))
@@ -106,7 +106,7 @@ export class ChatGateway {
             const operator = operators.find(op => op.id === msg.operator_id);
             return {
               ...msg,
-              operator: operator ? operator.username : '',
+              operator: operator ? operator.email : '',
             };
           }),
       }))
@@ -210,39 +210,39 @@ export class ChatGateway {
     return unread_messages.length;
   }
 
-  @SubscribeMessage('ban')
-  async ban(client: Client, data: any) {
-    try {
-      let { operator_id } = data;
-      const { user_id, type } = data;
-      const chat = await this.chatsRepo.findOne({ id: user_id });
-      const session = await this.sessionRepo.findOne({ id: operator_id });
-      operator_id = session.data
-        .toString()
-        .match(/i:\d+/)[0]
-        .replace('i:', '');
-      const operator = await this.userRepo.findOne({ id: operator_id });
-
-      if (operator.role !== 1 && operator.role !== 2) {
-        return 'bad';
-      }
-
-      const state = !isBlocked(chat);
-      const date = type === 'temporary' ? new Date() : new Date('2025');
-
-      await this.chatsRepo.update(
-        { id: user_id },
-        {
-          blocked: state,
-          blocked_date: state ? date : null,
-        },
-      );
-      return 'good';
-    } catch (err) {
-      // tslint:disable-next-line:no-console
-      console.log(err);
-    }
-  }
+  // @SubscribeMessage('ban')
+  // async ban(client: Client, data: any) {
+  //   try {
+  //     let { operator_id } = data;
+  //     const { user_id, type } = data;
+  //     const chat = await this.chatsRepo.findOne({ id: user_id });
+  //     const session = await this.sessionRepo.findOne({ id: operator_id });
+  //     operator_id = session.data
+  //       .toString()
+  //       .match(/i:\d+/)[0]
+  //       .replace('i:', '');
+  //     const operator = await this.userRepo.findOne({ id: operator_id });
+  //
+  //     if (operator.role !== 1 && operator.role !== 2) {
+  //       return 'bad';
+  //     }
+  //
+  //     const state = !isBlocked(chat);
+  //     const date = type === 'temporary' ? new Date() : new Date('2025');
+  //
+  //     await this.chatsRepo.update(
+  //       { id: user_id },
+  //       {
+  //         blocked: state,
+  //         blocked_date: state ? date : null,
+  //       },
+  //     );
+  //     return 'good';
+  //   } catch (err) {
+  //     // tslint:disable-next-line:no-console
+  //     console.log(err);
+  //   }
+  // }
 
   @SubscribeMessage('archive_chat')
   async archiveChat(client: Client, data: any) {
