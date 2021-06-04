@@ -26,6 +26,7 @@
     "@nestjs/typeorm": "^6.3.4",
     "@nestjs/websockets": "^6.6.7",
     "dotenv": "^10.0.0",
+    "express-fileupload": "^1.2.1",
     "mysql": "^2.17.1",
     "mysql2": "^2.2.5",
     "pg": "^8.6.0",

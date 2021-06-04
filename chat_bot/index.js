@@ -371,7 +371,7 @@ socket.on('new_answer', async data => {
         bot.telegram.sendDocument(
             chat.chat_id,
             {
-                source: "/var/www/livechat/chat_ui/public/"+message.path,
+                source: message.path,
                 filename: message.filename
             },
             {

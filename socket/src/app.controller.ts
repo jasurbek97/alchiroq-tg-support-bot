@@ -2,13 +2,11 @@ import {
   Controller,
   Post,
   Get,
-  UseInterceptors,
-  UploadedFile,
+  Request,
 } from '@nestjs/common';
-import { FileInterceptor } from '@nestjs/platform-express';
 import { AppService } from './app.service';
-import {join} from 'path';
-
+import * as path from "path"
+import {randomStringGenerator} from "@nestjs/common/utils/random-string-generator.util";
 @Controller()
 export class AppController {
   constructor(private readonly appService: AppService) {}
@@ -24,10 +22,12 @@ export class AppController {
   }
 
   @Post('/media')
-  @UseInterceptors(
-    FileInterceptor('file', { dest: join(__dirname, '../uploads'), preservePath: true }),
-  )
-  uploadMedia(@UploadedFile() file) {
-    return file.path;
+  async uploadMedia(@Request()  Req) {
+    const file = Req.files.file;
+    const fileName = randomStringGenerator();
+    const name = `${fileName}${path.parse(file.name).ext}`;
+    const filePath = path.join(__dirname, `../uploads`, name);
+    await file.mv(filePath);
+    return filePath;
   }
 }
