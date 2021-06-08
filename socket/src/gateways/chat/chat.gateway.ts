@@ -69,11 +69,8 @@ export class ChatGateway {
       lang: chat.lang === 'uz' ? 'Узбекский' : 'Русский',
       blocked: isBlocked(chat),
       messages: messages
-        .filter(
-          message =>
-            message.author === chat.id || message.recipient === chat.id,
-        )
-        .map(msg => {
+        .filter(message => message.author === chat.id || message.recipient === chat.id,
+        ).map(msg => {
           const operator = operators.find(op => op.id === msg.operator_id);
           return {
             ...msg,
@@ -81,7 +78,7 @@ export class ChatGateway {
           };
         }),
     }))
-      .filter(chat => chat.messages.length && !archivedChat(chat));
+      .filter(chat => chat.messages.length);
 
     return chats;
   }
@@ -92,8 +89,7 @@ export class ChatGateway {
     const messages = await this.messagesRepo.find();
     const operators = await this.userRepo.find();
 
-    chats = chats
-      .map(chat => ({
+    chats = chats.map(chat => ({
         ...chat,
         lang: chat.lang === 'uz' ? 'Узбекский' : 'Русский',
         blocked: isBlocked(chat),
@@ -189,6 +185,8 @@ export class ChatGateway {
   @SubscribeMessage('read')
   async read(client: Client, data: any) {
     const { chat_id } = data;
+    console.log(data);
+
     await this.messagesRepo.update(
       { author: chat_id, is_read: false },
       {
