@@ -10,6 +10,20 @@
           "cursor": 1
         }
       }
+    },
+    {
+      "id": "693034:693034",
+      "data": {
+        "__language_code": "uz",
+        "__scenes": {
+          "current": "register-scene",
+          "state": {
+            "lang": "uz",
+            "name": "hi"
+          },
+          "cursor": 3
+        }
+      }
     }
   ]
 }
