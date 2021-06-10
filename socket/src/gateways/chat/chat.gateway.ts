@@ -185,8 +185,6 @@ export class ChatGateway {
   @SubscribeMessage('read')
   async read(client: Client, data: any) {
     const { chat_id } = data;
-    console.log(data);
-
     await this.messagesRepo.update(
       { author: chat_id, is_read: false },
       {

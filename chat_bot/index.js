@@ -6,6 +6,8 @@ const Scene = require('telegraf/scenes/base')
 const WizardScene = require('telegraf/scenes/wizard')
 const Composer = require('telegraf/composer')
 const Session = require('./session')
+const LocalSession = require('telegraf-session-local')
+
 const socket = require('./socket-api')
 const TelegrafI18n = require('telegraf-i18n')
 const path = require('path');
@@ -26,7 +28,8 @@ const knex = (require('knex')({
     searchPath: ['knex', 'public'],
 }))
 
-const session = new Session(db_credentials)
+// const session = new Session(db_credentials)
+const session = new LocalSession({ database: 'session_db.json' })
 const i18n = new TelegrafI18n({
     defaultLanguage: 'ru',
     allowMissing: false,
@@ -271,7 +274,7 @@ bot.use((ctx, next) => {
     return next(ctx);
 });
 
-bot.use(session)
+bot.use(session.middleware())
 bot.use(i18n.middleware())
 
 bot.use(async (ctx, next) => {

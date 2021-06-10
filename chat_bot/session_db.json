@@ -1,0 +1,15 @@
+{
+  "sessions": [
+    {
+      "id": "551585738:551585738",
+      "data": {
+        "__language_code": "uz",
+        "__scenes": {
+          "current": "ask-scene",
+          "state": {},
+          "cursor": 1
+        }
+      }
+    }
+  ]
+}
